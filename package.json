@@ -1,0 +1,21 @@
+{
+  "name": "hapen-bot",
+  "version": "1.0.0",
+  "description": "my bot",
+  "main": "index.js",
+  "author": "What Hapen",
+  "dependencies": {
+    "discord.js": "^13.7.0"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "devDependencies": {
+    "node": "^16.20.2"
+  },
+  "scripts": {
+    "start": "npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH && node index.js"
+  },
+  "keywords": [],
+  "license": "MIT"
+}
