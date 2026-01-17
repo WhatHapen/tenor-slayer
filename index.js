@@ -62,29 +62,23 @@ var SAY_AUTHORS = [
 bot.on('messageCreate', async message => {
     if (message.content.includes('tenor.com/view/') || (
       message.content.includes('https://tenor.com/') ||
-      message.content.includes('static.kilpy.com/') ||
-      message.content.includes('giphy.com/media') ||
-      message.content.includes('https://kilpy.com/')
     )) {
       try {
         await message.delete();
         await message.channel.send(`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
       } catch (error) {
-        console.error('wtf', error);
+        console.error('wtf tenor', error);
       }
     }
-      if (message.content.startsWith('-postannouncement') && message.author.id === '148570340853809153') {
-        message.guild.channels.resolve('761407328900612158').send(`HEY FREAKS AND FREAKS     AND
-IT'S ME!!! EVERY   B0DY'S FAVORITE TENOR [[Removal For $9.95]]
-SPAMTON T. SPAMTON!!
-LET ME SAY [Thanks ]
-THANKS TO ""QUEEN" AND HER [Jif] ABUSE SHE HAS BECOMED [[404 Page Not Found]]
-TOSSED INTO THE GARBAGE CAN.           THE GARBAGE [BAN]!! BY ME
-NOW I CAN GO BACK TO B3ING EVERYBODY''S FAVORITE [pretty face] AND [[WINNAR]]
-THANK ME LATER BY [Killed] YOUR NEAREST TENOR POSTER!!!
-PLEASURE DOING BUSINESS WITH YOU KIDS
-HAEAHAEAHAEAHAEAH!!`);
-        return;
+      if (message.content.includes('static.kilpy.com/') || (
+          message.content.includes('https://kilpy.com/')
+        )) {
+      try {
+        await message.delete();
+        await message.channel.send(`[[Kilpy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+      } catch (error) {
+        console.error('wtf kilpy', error);
+      }
     }
     if (message.content.startsWith('-say') && SAY_AUTHORS.includes(message.author.id)) {
         try {
