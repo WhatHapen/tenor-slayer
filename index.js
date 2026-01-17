@@ -61,8 +61,12 @@ var SAY_AUTHORS = [
 
 bot.on('messageCreate', async message => {
     if (message.content.includes('tenor.com/view/') || (
-      message.content.includes('https://tenor.com/') &&
-      message.content.endsWith('.gif')
+      message.content.includes('https://tenor.com/') ||
+      message.content.includes('static.kilpy.com/') ||
+      message.content.includes('giphy.com/media') ||
+      message.content.includes('https://kilpy.com/') &&
+      message.content.endsWith('.gif') ||
+      message.content.endsWith('.mp4')
     )) {
       try {
         await message.delete();
