@@ -64,9 +64,7 @@ bot.on('messageCreate', async message => {
       message.content.includes('https://tenor.com/') ||
       message.content.includes('static.kilpy.com/') ||
       message.content.includes('giphy.com/media') ||
-      message.content.includes('https://kilpy.com/') &&
-      message.content.endsWith('.gif') ||
-      message.content.endsWith('.mp4')
+      message.content.includes('https://kilpy.com/')
     )) {
       try {
         await message.delete();
