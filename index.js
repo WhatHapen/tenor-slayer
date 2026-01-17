@@ -13,7 +13,7 @@ function changeStatus() {
     case 0:
       bot.user.setPresence({
         activities: [{
-          name: 'for your filthy Tenor links',
+          name: 'for your filthy Klipy links',
           type: 'WATCHING'
         }]
       });
@@ -21,7 +21,7 @@ function changeStatus() {
     case 1:
       bot.user.setPresence({
         activities: [{
-          name: 'Whack-A-Tenor',
+          name: 'Whack-A-Klipy',
           type: 'PLAYING'
         }]
       });
@@ -29,7 +29,7 @@ function changeStatus() {
     case 2:
       bot.user.setPresence({
         activities: [{
-          name: 'the screams of Tenor links while they are being exterminated',
+          name: 'the screams of Klipy links while they are being exterminated',
           type: 'LISTENING'
         }]
       });
