@@ -61,7 +61,7 @@ var SAY_AUTHORS = [
 
 bot.on('messageCreate', async message => {
     if (message.content.includes('tenor.com/view/') || (
-      message.content.includes('https://tenor.com/') ||
+      message.content.includes('https://tenor.com/')
     )) {
       try {
         await message.delete();
