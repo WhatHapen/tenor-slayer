@@ -70,14 +70,14 @@ bot.on('messageCreate', async message => {
         console.error('wtf tenor', error);
       }
     }
-      if (message.content.includes('static.kilpy.com/') || (
-          message.content.includes('https://kilpy.com/')
+      if (message.content.includes('static.klipy.com/') || (
+          message.content.includes('https://klipy.com/')
         )) {
       try {
         await message.delete();
-        await message.channel.send(`[[Kilpy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+        await message.channel.send(`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
       } catch (error) {
-        console.error('wtf kilpy', error);
+        console.error('wtf klipy', error);
       }
     }
     if (message.content.startsWith('-say') && SAY_AUTHORS.includes(message.author.id)) {
