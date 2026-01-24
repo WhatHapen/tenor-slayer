@@ -64,7 +64,7 @@ bot.on('messageCreate', async message => {
       message.content.includes('https://tenor.com/')
     )) {
       try {
-        console.log('tenor deleted')
+        console.log('tenor deleted');
         await message.delete();
         await message.channel.send(`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
       } catch (error) {
@@ -75,7 +75,7 @@ bot.on('messageCreate', async message => {
           message.content.includes('https://klipy.com/')
         )) {
       try {
-        console.log('klipy deleted')
+        console.log('klipy deleted');
         await message.delete();
         await message.channel.send(`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
       } catch (error) {
@@ -88,6 +88,7 @@ bot.on('messageCreate', async message => {
             if (match) {
                 const channel = await message.guild.channels.fetch(match[1]);
                 channel.send(match[2]);
+                console.log('message created');
             }
         } catch (error) {
             console.error(error);
