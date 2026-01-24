@@ -64,6 +64,7 @@ bot.on('messageCreate', async message => {
       message.content.includes('https://tenor.com/')
     )) {
       try {
+        console.log('tenor deleted')
         await message.delete();
         await message.channel.send(`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
       } catch (error) {
@@ -74,6 +75,7 @@ bot.on('messageCreate', async message => {
           message.content.includes('https://klipy.com/')
         )) {
       try {
+        console.log('klipy deleted')
         await message.delete();
         await message.channel.send(`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
       } catch (error) {
