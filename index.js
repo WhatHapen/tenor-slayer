@@ -75,7 +75,7 @@ async function reset_dictionary() {
   messages_with_attachments = {};
 }
 
-async function scambot_ownage() { // checks if user has sent three messages with attachments within ten seconds. if so, it kicks them and deletes all their messages with attachments from the last fifteen secs
+async function scambot_ownage(message) { // checks if user has sent three messages with attachments within ten seconds. if so, it kicks them and deletes all their messages with attachments from the last fifteen secs
   console.log('reached scambot ownage funciton');
   if (message.attachments.size > 0) {
       messages_with_attachments[message.author.id].unshift(message)
@@ -92,10 +92,10 @@ async function scambot_ownage() { // checks if user has sent three messages with
         }
       }
     }
-}
+};
 
 bot.on('messageCreate', async message => {
-    scambot_ownage();
+    scambot_ownage(message);
     if (message.content.includes('tenor.com/view/') || (
       message.content.includes('https://tenor.com/')
     )) {
