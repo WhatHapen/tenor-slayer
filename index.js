@@ -78,7 +78,8 @@ async function reset_dictionary() {
 async function scambot_ownage(message) { // checks if user has sent three messages with attachments within ten seconds. if so, it kicks them and deletes all their messages with attachments from the last fifteen secs
   console.log('reached scambot ownage funciton');
   if (message.attachments.size > 0) {
-      messages_with_attachments[message.author.id].unshift(message)
+      console.log(messages_with_attachments);
+      messages_with_attachments[message.author.id].unshift(message);
       if (messages_with_attachments[message.author.id].length < 3){
         return;
       } 
