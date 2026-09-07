@@ -95,7 +95,7 @@ async function reset_dictionary() {
 //};
 
 bot.on('messageCreate', async message => {
-    scambot_ownage(message,message.author.id);
+//    scambot_ownage(message,message.author.id);
     if (message.content.includes('tenor.com/view/') || (
       message.content.includes('https://tenor.com/')
     )) {
