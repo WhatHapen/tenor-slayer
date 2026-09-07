@@ -75,17 +75,17 @@ async function reset_dictionary() {
   messages_with_attachments = {};
 }
 
-async function scambot_ownage(message) { // checks if user has sent three messages with attachments within ten seconds. if so, it kicks them and deletes all their messages with attachments from the last fifteen secs
+async function scambot_ownage(message,author_id) { // checks if user has sent three messages with attachments within ten seconds. if so, it kicks them and deletes all their messages with attachments from the last fifteen secs
   console.log('reached scambot ownage funciton');
   if (message.attachments.size > 0) {
-      messages_with_attachments[message.author.id] = messages_with_attachments[message.author.id].unshift(message);
-      if (messages_with_attachments[message.author.id].length < 3){
+      messages_with_attachments[author_id] = messages_with_attachments[author_id].unshift(message);
+      if (messages_with_attachments[author_id].length < 3){
         return;
       } 
-      var third_to_last = messages_with_attachments[message.author.id][2]
+      var third_to_last = messages_with_attachments[author_id][2]
       if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
         await message.author.kick()
-        for (const mess of messages_with_attachments[message.author.id]) {
+        for (const mess of messages_with_attachments[author_id) {
           if ((message.createdTimestamp - mess.createdTimestamp) < 15000.0) {
             await mess.delete();
           }
@@ -95,7 +95,7 @@ async function scambot_ownage(message) { // checks if user has sent three messag
 };
 
 bot.on('messageCreate', async message => {
-    scambot_ownage(message);
+    scambot_ownage(message,message.author.id);
     if (message.content.includes('tenor.com/view/') || (
       message.content.includes('https://tenor.com/')
     )) {
