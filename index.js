@@ -133,7 +133,7 @@ bot.on('messageCreate', async message => {
     } // SCAM BOT OWNAGE - MUST BE AT THE END
     if (message.attachments.size > 0) {
       if (!messages_with_attachments[message.author.id]) {
-        messages_with_attachments[message.author.id] = {};
+        messages_with_attachments[message.author.id] = [];
       }
       messages_with_attachments[message.author.id].unshift(message);
       if (messages_with_attachments[message.author.id].length < 3){
