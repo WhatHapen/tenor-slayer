@@ -85,7 +85,7 @@ async function scambot_ownage(message,author_id) { // checks if user has sent th
       var third_to_last = messages_with_attachments[author_id][2]
       if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
         await message.author.kick()
-        for (const mess of messages_with_attachments[author_id) {
+        for (const mess of messages_with_attachments[author_id]) {
           if ((message.createdTimestamp - mess.createdTimestamp) < 15000.0) {
             await mess.delete();
           }
