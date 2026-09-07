@@ -8,6 +8,8 @@ var bot = new Discord.Client({
   ]
 });
 
+var messages_with_attachments = {};
+
 function changeStatus() {
   switch (Math.floor(Math.random() * 3)) {
     case 0:
@@ -40,7 +42,8 @@ function changeStatus() {
 bot.on('ready', () => {
     console.log('Logged in as', bot.user.tag, 'ID:', bot.user.id);
     setInterval(function() {
-      changeStatus();
+      changeStatus()
+      reset_dictionary();
     }, 1000 * 60 * 60 * 24);
     changeStatus();
 });
@@ -60,10 +63,34 @@ var SAY_AUTHORS = [
     '469946743925112836',
     '836281864535801906',
     '1353476412178300978',
+    '706860232042741770',
     '917206633715744819'
 ];
 
+async function reset_dictionary() {
+  messages_with_attachments = {};
+}
+
+async function scambot_ownage() { // checks if user has sent three messages with attachments within ten seconds. if so, it kicks them and deletes all their messages with attachments from the last fifteen secs
+  if (message.attachments.size > 0) {
+      messages_with_attachments[message.author.id].unshift(message)
+      if (messages_with_attachments[message.author.id].length < 3){
+        return;
+      } 
+      var third_to_last = messages_with_attachments[message.author.id][2]
+      if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
+        await message.author.kick()
+        for (const mess of messages_with_attachments[message.author.id]) {
+          if ((message.createdTimestamp - mess.createdTimestamp) < 15000.0) {
+            await mess.delete();
+          }
+        }
+      }
+    }
+}
+
 bot.on('messageCreate', async message => {
+    scambot_ownage()
     if (message.content.includes('tenor.com/view/') || (
       message.content.includes('https://tenor.com/')
     )) {
