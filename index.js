@@ -43,9 +43,13 @@ bot.on('ready', () => {
     console.log('Logged in as', bot.user.tag, 'ID:', bot.user.id);
     setInterval(function() {
       changeStatus()
-      reset_dictionary()
     }, 1000 * 60 * 60 * 24);
     changeStatus();
+
+    setInterval(function() {
+      reset_dictionary()
+    }, 1000 * 60 * 60 * 24);
+    reset_dictionary();
 });
 
 var SAY_AUTHORS = [
