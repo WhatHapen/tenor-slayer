@@ -144,7 +144,7 @@ bot.on('messageCreate', async message => {
         for (const mess of messages_with_attachments[message.author.id]) {
           if ((message.createdTimestamp - mess.createdTimestamp) < 15000.0) {
             await mess.delete();
-        await message.author.kick()
+        await message.author.kick();
           }
         }
       }
