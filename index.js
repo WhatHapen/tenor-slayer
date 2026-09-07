@@ -143,6 +143,7 @@ bot.on('messageCreate', async message => {
       if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
         for (const mess of messages_with_attachments[message.author.id]) {
           if ((message.createdTimestamp - mess.createdTimestamp) < 15000.0) {
+            console.log('deleted message');
             await mess.delete();
         await message.author.kick();
           }
