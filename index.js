@@ -43,7 +43,7 @@ bot.on('ready', () => {
     console.log('Logged in as', bot.user.tag, 'ID:', bot.user.id);
     setInterval(function() {
       changeStatus()
-      reset_dictionary();
+      reset_dictionary()
     }, 1000 * 60 * 60 * 24);
     changeStatus();
 });
