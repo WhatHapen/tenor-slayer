@@ -96,7 +96,7 @@ bot.on('messageCreate', async message => {
     /////////////////////////////
     //////// SAY COMMAND ////////
     /////////////////////////////
-    if (message.content.startsWith('-say') && (message.member.roles.cache.has('1305201858284884059'))) {
+    if (message.content.startsWith('-say') && (message.member.roles.cache.has('210999903399182336'))) {
       try {
           const match = /-say <#(\d+)> (.+)/u.exec(message.content);
           if (match) {
@@ -110,9 +110,9 @@ bot.on('messageCreate', async message => {
       return;
     }
     ////////////////////////////////
-    //////// SCAMBOT OWNAGE //////// // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
+    //////// SCAMBOT OWNAGE //////// 
     ////////////////////////////////
-    if (message.attachments.size > 0) {
+    if (message.attachments.size > 0) { // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
       if (!messages_with_attachments[message.author.id]) {
         messages_with_attachments[message.author.id] = [];
       }
