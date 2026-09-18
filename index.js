@@ -96,7 +96,7 @@ bot.on('messageCreate', async message => {
     /////////////////////////////
     //////// SAY COMMAND ////////
     /////////////////////////////
-      if (message.content.startsWith('-say') && (message.member.roles.cache.has('1305201858284884059'))
+      if (message.content.startsWith('-say') && (message.member.roles.cache.has('1305201858284884059')))
         try {
             const match = /-say <#(\d+)> (.+)/u.exec(message.content);
             if (match) {
@@ -108,30 +108,30 @@ bot.on('messageCreate', async message => {
             console.error(error);
         }
         return;
-    }
+      }
     ////////////////////////////////
     //////// SCAMBOT OWNAGE ////////
     ////////////////////////////////
-    if (message.attachments.size > 0) { // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
-      if (!messages_with_attachments[message.author.id]) {
-        messages_with_attachments[message.author.id] = [];
-      }
-      messages_with_attachments[message.author.id].unshift(message);
-      if (messages_with_attachments[message.author.id].length < 3){
-        return;
-      } 
-      var third_to_last = messages_with_attachments[message.author.id][2]
-      if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
-        await message.channel.send(`[[Scam]] MESSAGE DELETED. [!$!$] OFF, <@${message.author.id}>.`);
-        for (const mess of messages_with_attachments[message.author.id]) {
-          if ((message.createdTimestamp - mess.createdTimestamp) < 180000.0) {
-            await mess.delete();
-        await message.member.kick();
+      if (message.attachments.size > 0) { // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
+        if (!messages_with_attachments[message.author.id]) {
+          messages_with_attachments[message.author.id] = [];
+        }
+        messages_with_attachments[message.author.id].unshift(message);
+        if (messages_with_attachments[message.author.id].length < 3){
+          return;
+        } 
+        var third_to_last = messages_with_attachments[message.author.id][2]
+        if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
+          await message.channel.send(`[[Scam]] MESSAGE DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+          for (const mess of messages_with_attachments[message.author.id]) {
+            if ((message.createdTimestamp - mess.createdTimestamp) < 180000.0) {
+              await mess.delete();
+          await message.member.kick();
           }
         }
       }
     }
-});
+  });
 bot.login(process.env.TOKEN);
 
 // Just in case we need this later.
