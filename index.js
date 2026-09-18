@@ -52,32 +52,15 @@ bot.on('ready', () => {
     reset_dictionary();
 });
 
-var SAY_AUTHORS = [
-    '148570340853809153',
-    '140890929287528448',
-    '450488877283803148',
-    '235563065561579522',
-    '108892284119977984',
-    '292741623253565441',
-    '367817412441145344',
-    '148231501413089280',
-    '149410597513986048',
-    '148303871989514240',
-    '786723445873442856',
-    '469946743925112836',
-    '836281864535801906',
-    '1353476412178300978',
-    '706860232042741770',
-    '917206633715744819'
-];
-
 async function reset_dictionary() {
   messages_with_attachments = {};
 }
 
 bot.on('messageCreate', async message => {
-//    scambot_ownage(message,message.author.id);
-    if (message.content.includes('tenor.com/view/') || (
+    //////////////////////////////////
+    //////// MESSAGE DELETION ////////
+    //////////////////////////////////
+    if (message.content.includes('tenor.com/view/') || ( // TENOR
       message.content.includes('https://tenor.com/')
     )) {
       try {
@@ -88,7 +71,7 @@ bot.on('messageCreate', async message => {
         console.error('wtf tenor', error);
       }
     }
-      if (message.content.includes('static.klipy.com/') || (
+      if (message.content.includes('static.klipy.com/') || ( // KLIPY
           message.content.includes('https://klipy.com/')
         )) {
       try {
@@ -99,7 +82,21 @@ bot.on('messageCreate', async message => {
         console.error('wtf klipy', error);
       }
     }
-    if (message.content.startsWith('-say') && SAY_AUTHORS.includes(message.author.id)) {
+    if (message.content.includes('anakama.xyz/owned') || ( // IMPOSTER WEBSITE
+        message.content.includes('anakama.xyz/sowned')
+    )) {
+      try {
+        console.log('imposter website deleted');
+        await message.delete();
+        await message.channel.send(`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`);
+      } catch (error) {
+        console.error('wtf embed', error);
+      }
+    }
+    /////////////////////////////
+    //////// SAY COMMAND ////////
+    /////////////////////////////
+      if (message.content.startsWith('-say') && (message.member.roles.cache.has('1305201858284884059'))
         try {
             const match = /-say <#(\d+)> (.+)/u.exec(message.content);
             if (match) {
@@ -111,8 +108,11 @@ bot.on('messageCreate', async message => {
             console.error(error);
         }
         return;
-    } // SCAM BOT OWNAGE - MUST BE AT THE END
-    if (message.attachments.size > 0) {
+    }
+    ////////////////////////////////
+    //////// SCAMBOT OWNAGE ////////
+    ////////////////////////////////
+    if (message.attachments.size > 0) { // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
       if (!messages_with_attachments[message.author.id]) {
         messages_with_attachments[message.author.id] = [];
       }
