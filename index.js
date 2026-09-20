@@ -89,7 +89,6 @@ bot.on('messageCreate', async message => {
             break;
       }
     }
-    }
     /////////////////////////////
     //////// SAY COMMAND ////////
     /////////////////////////////
