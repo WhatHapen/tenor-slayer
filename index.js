@@ -66,7 +66,7 @@ bot.on('messageCreate', async message => {
     
     for (const key of Object.keys(case_dict)) {
       if (message.content.includes(key)) {
-        var message_type = case_dict(key)
+        var message_type = case_dict[key]
         try {
           await message.delete();
           switch (message_type) {
