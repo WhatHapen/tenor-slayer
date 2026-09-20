@@ -71,20 +71,29 @@ bot.on('messageCreate', async message => {
           await message.delete();
           switch (message_type) {
             case 0:
-              console.log('tenor deleted')
+              console.log('tenor deleted');
               await message.channel.send(`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+              break;
             case 1:
-              console.log('klipy deleted')
+              console.log('klipy deleted');
               await message.channel.send(`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+              break;
             case 2:
-              console.log('imposter website deleted')
+              console.log('imposter website deleted');
               await message.channel.send(`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`);
+              break;
           }
         } catch (error) {
             switch (message_type) {
-              case 0: console.error('wtf tenor', error);
-              case 1: console.error('wtf klipy', error);
-              case 2: console.error('wtf embed', error);
+              case 0: 
+                console.error('wtf tenor', error);
+                break;
+              case 1: 
+                console.error('wtf klipy', error);
+                break;
+              case 2: 
+                console.error('wtf embed', error);
+                break;
             }
       }
     }
