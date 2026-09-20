@@ -84,17 +84,8 @@ bot.on('messageCreate', async message => {
               break;
           }
         } catch (error) {
-            switch (message_type) {
-              case 0: 
-                console.error('wtf tenor', error);
-                break;
-              case 1: 
-                console.error('wtf klipy', error);
-                break;
-              case 2: 
-                console.error('wtf embed', error);
-                break;
-            }
+          console.error(error);
+        }
             break;
       }
     }
