@@ -95,6 +95,7 @@ bot.on('messageCreate', async message => {
                 console.error('wtf embed', error);
                 break;
             }
+            break;
       }
     }
     }
