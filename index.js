@@ -60,43 +60,39 @@ bot.on('messageCreate', async message => {
     //////////////////////////////////
     //////// MESSAGE DELETION ////////
     //////////////////////////////////
-    if (message.content.includes('tenor.com/view/') || ( // TENOR
-      message.content.includes('https://tenor.com/')
-    )) {
-      try {
-        console.log('tenor deleted');
-        await message.delete();
-        await message.channel.send(`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
-      } catch (error) {
-        console.error('wtf tenor', error);
+    var case_dict = {'tenor.com/view/':0,'https://tenor.com/':0,
+                     'static.klipy.com/':1,'https://klipy.com/':1,
+                     'anakama.xyz/owned':2,'anakama.xyz/sowned':2}
+    
+    for (const key of Object.keys(case_dict)) {
+      if (message.content.includes(key)) {
+        var message_type = case_dict(key)
+        try {
+          await message.delete();
+          switch (message_type) {
+            case 0:
+              console.log('tenor deleted')
+              await message.channel.send(`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+            case 1:
+              console.log('klipy deleted')
+              await message.channel.send(`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
+            case 2:
+              console.log('imposter website deleted')
+              await message.channel.send(`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`);
+          }
+        } catch (error) {
+            switch (message_type) {
+              case 0: console.error('wtf tenor', error);
+              case 1: console.error('wtf klipy', error);
+              case 2: console.error('wtf embed', error);
+            }
       }
     }
-    if (message.content.includes('static.klipy.com/') || ( // KLIPY
-        message.content.includes('https://klipy.com/')
-      )) {
-      try {
-        console.log('klipy deleted');
-        await message.delete();
-        await message.channel.send(`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`);
-      } catch (error) {
-        console.error('wtf klipy', error);
-      }
-    }
-    if (message.content.includes('anakama.xyz/owned') || ( // IMPOSTER WEBSITE
-        message.content.includes('anakama.xyz/sowned')
-    )) {
-      try {
-        console.log('imposter website deleted');
-        await message.delete();
-        await message.channel.send(`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`);
-      } catch (error) {
-        console.error('wtf embed', error);
-      }
     }
     /////////////////////////////
     //////// SAY COMMAND ////////
     /////////////////////////////
-    if (message.content.startsWith('-say') && (message.member.roles.cache.has('210999903399182336'))) {
+    if (message.content.startsWith('-say') && (message.member.roles.cache.has('1305201858284884059'))) {
       try {
           const match = /-say <#(\d+)> (.+)/u.exec(message.content);
           if (match) {
@@ -110,9 +106,9 @@ bot.on('messageCreate', async message => {
       return;
     }
     ////////////////////////////////
-    //////// SCAMBOT OWNAGE //////// 
+    //////// SCAMBOT OWNAGE //////// // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
     ////////////////////////////////
-    if (message.attachments.size > 0) { // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
+    if (message.attachments.size > 0) {
       if (!messages_with_attachments[message.author.id]) {
         messages_with_attachments[message.author.id] = [];
       }
