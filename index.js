@@ -92,7 +92,7 @@ bot.on('messageCreate', async message => {
     /////////////////////////////
     //////// SAY COMMAND ////////
     /////////////////////////////
-    if (message.content.startsWith('-say') && (message.member.roles.cache.has('1305201858284884059'))) {
+    if (message.content.startsWith('-say') && (message.member.roles.cache.has('210999903399182336'))) {
       try {
           const match = /-say <#(\d+)> (.+)/u.exec(message.content);
           if (match) {
