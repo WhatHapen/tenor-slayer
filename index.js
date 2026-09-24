@@ -62,7 +62,7 @@ bot.on('messageCreate', async message => {
     //////////////////////////////////
     var case_dict = {'tenor.com/view/':0,'https://tenor.com/':0,
                      'static.klipy.com/':1,'https://klipy.com/':1,
-                     'anakama.xyz':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2}
+                     'anakama.xyz/':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2}
     
     for (const key of Object.keys(case_dict)) {
       if (message.content.includes(key)) {
