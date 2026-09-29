@@ -85,6 +85,7 @@ bot.on('messageCreate', async message => {
               break;
             case 3:
               await message.channel.send(`[[Slop]] MESSAGE DELETED. [!$!$] YOURSELF, <@${message.author.id}>.`);
+              break;
           }
         } catch (error) {
           console.error(error);
