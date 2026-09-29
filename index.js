@@ -62,10 +62,9 @@ bot.on('messageCreate', async message => {
     //////////////////////////////////
     var case_dict = {'tenor.com/view/':0,'https://tenor.com/':0,
                      'static.klipy.com/':1,'https://klipy.com/':1,
-                     'anakama.xyz/':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2,
-                     'verity':3}
+                     'anakama.xyz/':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2}
     var message_dict = {0:`[[Tenor]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`, 1:`[[Klipy]] LINK DELETED. [!$!$] OFF, <@${message.author.id}>.`, 
-                        2:`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`, 3:`[[Slop]] MESSAGE DELETED. [!$!$] YOURSELF, <@${message.author.id}>.`}
+                        2:`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`}
     
     for (const key of Object.keys(case_dict)) {
       if (message.content.toLowerCase().includes(key.toLowerCase())) {
