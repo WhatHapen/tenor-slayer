@@ -60,7 +60,7 @@ bot.on('messageCreate', async message => {
     //////////////////////////////////
     //////// MESSAGE DELETION ////////
     //////////////////////////////////
-    var case_dict = {'tenor.com/view/':0,'https://tenor.com/':0,'https://media.discordapp.net/attachments/1377420610732429425/1554485229069279252/togif.f87e716e.gif?ex=6abd0eaf&is=6abbbd2f&hm=b685f692233b0936791bf7792e825b1fd5a536c435e39ae3a4adcf7e0de77e42&=':0,
+    var case_dict = {'tenor.com/view/':0,'https://tenor.com/':0,
                      'static.klipy.com/':1,'https://klipy.com/':1,
                      'anakama.xyz/':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2}
     
