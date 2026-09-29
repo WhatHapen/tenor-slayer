@@ -94,7 +94,6 @@ bot.on('messageCreate', async message => {
       } catch (error) {
           console.error(error);
       }
-      return;
     }
     ////////////////////////////////
     //////// SCAMBOT OWNAGE //////// // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
