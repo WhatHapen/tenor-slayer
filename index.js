@@ -66,7 +66,7 @@ bot.on('messageCreate', async message => {
                      'verity':3}
     
     for (const key of Object.keys(case_dict)) {
-      if (message.content.toLowerCase().includes(key)) {
+      if (message.content.toLowerCase().includes(key.toLowerCase())) {
         var message_type = case_dict[key]
         try {
           await message.delete();
