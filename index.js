@@ -62,7 +62,8 @@ bot.on('messageCreate', async message => {
     //////////////////////////////////
     var case_dict = {'tenor.com/view/':0,'https://tenor.com/':0,
                      'static.klipy.com/':1,'https://klipy.com/':1,
-                     'anakama.xyz/':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2}
+                     'anakama.xyz/':2,'anakama.xyz/owned':2,'anakama.xyz/sowned':2,'owned.anakama.xyz/':2,'sowned.anakama.xyz/':2,
+                     'verity':3}
     
     for (const key of Object.keys(case_dict)) {
       if (message.content.includes(key)) {
@@ -82,6 +83,8 @@ bot.on('messageCreate', async message => {
               console.log('imposter website deleted');
               await message.channel.send(`[[Imposter]] LINK DELETED. THIS TOWN AIN'T BIG ENOUGH FOR THE TWO OF US, PAL. [!$!$] YOURSELF, <@${message.author.id}>.`);
               break;
+            case 3:
+              await message.channel.send(`[[Slop]] MESSAGE DELETED. [!$!$] YOURSELF, <@${message.author.id}>.`);
           }
         } catch (error) {
           console.error(error);
