@@ -75,7 +75,7 @@ bot.on('messageCreate', async message => {
           console.log(`message deleted, type <@${message_type}>.`);
           await message.channel.send(message_dict[message_type]);
           }
-        } catch (error) {
+         catch (error) {
           console.error(error);
         }
             break;
