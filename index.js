@@ -96,9 +96,9 @@ bot.on('messageCreate', async message => {
       }
     }
     ////////////////////////////////
-    //////// SCAMBOT OWNAGE //////// // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
+    //////// SCAMBOT OWNAGE ////////
     ////////////////////////////////
-    if (message.attachments.size > 0) {
+    if (message.attachments.size > 0) { // MUST BE KEPT AT THE END OF THE bot.on FUNC DUE TO RETURN COMMAND
       if (!messages_with_attachments[message.author.id]) {
         messages_with_attachments[message.author.id] = [];
       }
