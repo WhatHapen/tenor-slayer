@@ -15,7 +15,7 @@ function changeStatus() {
     case 0:
       bot.user.setPresence({
         activities: [{
-          name: 'for your filthy Klipy links',
+          name: 'for your filthy external GIF links',
           type: 'WATCHING'
         }]
       });
@@ -23,7 +23,7 @@ function changeStatus() {
     case 1:
       bot.user.setPresence({
         activities: [{
-          name: 'Whack-A-Klipy',
+          name: 'Whack-A-GIF',
           type: 'PLAYING'
         }]
       });
@@ -31,7 +31,7 @@ function changeStatus() {
     case 2:
       bot.user.setPresence({
         activities: [{
-          name: 'the screams of Klipy links while they are being exterminated',
+          name: 'the screams of external GIF links while they are being exterminated',
           type: 'LISTENING'
         }]
       });
