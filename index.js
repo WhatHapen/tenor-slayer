@@ -112,8 +112,8 @@ bot.on('messageCreate', async message => {
         }
       }
     }
-  }
-});
+  
+);
 bot.login(process.env.TOKEN);
 
 // Just in case we need this later.
