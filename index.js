@@ -108,7 +108,7 @@ bot.on('messageCreate', async message => {
       if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
         await message.channel.send(`[[Scam]] MESSAGE DELETED. [!$!$] OFF, <@${message.author.id}>.`);
         await message.member.ban({days:1,reason:"SCAMMER OBLITERATED"});
-        guild.members.unban(message.author);
+        await guild.members.unban(message.author);
         }
       }
     }
