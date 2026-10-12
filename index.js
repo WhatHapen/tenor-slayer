@@ -109,7 +109,7 @@ bot.on('messageCreate', async message => {
         const user_id = message.author.id
         await message.channel.send(`[[Scam]] MESSAGE DELETED. [!$!$] OFF, <@${message.author.id}>.`);
         await message.member.ban({days:1,reason:"SCAMMER OBLITERATED"});
-        await guild.members.unban(user_id);
+        await message.guild.members.unban(user_id);
         }
       }
     }
