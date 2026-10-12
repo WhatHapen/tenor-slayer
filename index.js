@@ -107,7 +107,7 @@ bot.on('messageCreate', async message => {
       var third_to_last = messages_with_attachments[message.author.id][2]
       if ((message.createdTimestamp - third_to_last.createdTimestamp) < 10000.0) {
         await message.channel.send(`[[Scam]] MESSAGE DELETED. [!$!$] OFF, <@${message.author.id}>.`);
-        await message.member.ban();
+        await message.member.ban(1);
         await message.member.unban();
         }
       }
